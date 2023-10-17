@@ -1,12 +1,13 @@
 /** @format */
 
 const express = require("express");
-
-const dotenv = require('dotenv')
-dotenv.config()
-const PORT = process.env.PORT
+const cros = require("cors");
+const dotenv = require("dotenv");
+dotenv.config();
+const PORT = process.env.PORT;
 
 const app = express();
+app.use(cros());
 app.use(express.json());
 const AppRouters = require('./src/routes/AppRouters')
 app.use('/',AppRouters)
